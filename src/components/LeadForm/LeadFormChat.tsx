@@ -45,6 +45,8 @@ const faturamentos = [
 ];
 const colaboradoresOptions = ["apenas eu", "1 a 5" ,"6 a 20", "21 a 50", "51 a 200", "+200"];
 
+const [lead_nome, setLeadNome] = useState<string | null>(null);
+
 export const LeadFormChat = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState<Step>("nome");
@@ -71,7 +73,7 @@ export const LeadFormChat = () => {
   useEffect(() => {
     // Initial greeting
     addMessage(
-      "Olá! 👋 Sou o assistente da B2B Flow. Vou criar um Plano 100% Personalizado de IA para sua empresa - focado em aumentar receita, reduzir custos e multiplicar sua margem.",
+      "Olá! 👋 Sou o assistente da B2bFlow. Vou criar um Plano 100% Personalizado de IA para sua empresa - focado em aumentar receita, reduzir custos e multiplicar sua margem.",
       false
     );
     setTimeout(() => {
@@ -86,6 +88,7 @@ export const LeadFormChat = () => {
   }, [messages, step]);
 
   const handleNome = (nome: string) => {
+    setLeadNome(nome);
     setLeadData((prev) => ({ ...prev, nome }));
     addMessage(nome, true);
     setTimeout(() => {
@@ -133,7 +136,7 @@ export const LeadFormChat = () => {
 
       setTimeout(() => {
         addMessage(
-          `${empresa}! É sempre um prazer conhecer empresas assim. A IA pode trazer um diferencial incrível para vocês. Qual o segmento da sua empresa?`,
+          `${lead_nome}! É sempre um prazer conhecer empresas assim como ${empresa}. A IA pode trazer um diferencial incrível para vocês. Qual o segmento da sua empresa?`,
           false
         );
         setStep("segmento");
