@@ -45,8 +45,6 @@ const faturamentos = [
 ];
 const colaboradoresOptions = ["apenas eu", "1 a 5" ,"6 a 20", "21 a 50", "51 a 200", "+200"];
 
-const [lead_nome, setLeadNome] = useState<string | null>(null);
-
 export const LeadFormChat = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState<Step>("nome");
@@ -57,6 +55,8 @@ export const LeadFormChat = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [leadToken, setLeadToken] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const [lead_nome, setLeadNome] = useState<string>('');
 
   // Check for existing session on mount
   useEffect(() => {
