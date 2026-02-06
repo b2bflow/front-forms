@@ -114,7 +114,7 @@ export const createLead = async (data: LeadData): Promise<CreateLeadResponse> =>
       body: JSON.stringify(data),
     });
 
-    console.log("[Mock API] Response:", response);
+    // console.log("[Mock API] Response:", response);
 
     if (!response.ok) {
       throw new Error('Erro na requisição');
@@ -140,7 +140,7 @@ export const updateLead = async (data: LeadData): Promise<void> => {
       body: JSON.stringify(data),
     });
 
-    console.log("[Mock API] Response:", response);
+    // console.log("[Mock API] Response:", response);
 
     if (!response.ok) {
       throw new Error('Erro na requisição');
@@ -221,7 +221,7 @@ export const validateSession = async (token: string): Promise<SessionData | null
       appointmentTime: data.appointmentTime || ""
     };
 
-    console.log("[API] Sessão validada e mapeada:", session);
+    // console.log("[API] Sessão validada e mapeada:", session);
 
     return session;
 

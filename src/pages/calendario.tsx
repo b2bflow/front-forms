@@ -5,7 +5,7 @@ export const Calendario = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleDateTime = async (date: Date, time: string) => {
-        console.log(date, time);
+        // console.log(date, time);
 
         // só pra teste de UI
         setIsSubmitting(true);

@@ -18,10 +18,10 @@ const Confirmacao = () => {
     const checkSession = async () => {
       const token = getSessionCookie();
 
-      console.log(token);
+      // console.log(token);
 
       if (!token) {
-        console.log("Nenhuma sessão encontrada");
+        // console.log("Nenhuma sessão encontrada");
         navigate("/");
         return;
       }
@@ -29,7 +29,7 @@ const Confirmacao = () => {
       const data = await validateSession(token);
 
       if (!data) {
-        console.log("Sessão inválida");
+        // console.log("Sessão inválida");
         clearSessionCookie();
         navigate("/");
         return;
@@ -43,7 +43,7 @@ const Confirmacao = () => {
   }, [navigate]);
 
   const handleNewAppointment = () => {
-    console.log("Sessão inválida");
+    // console.log("Sessão inválida");
     clearSessionCookie();
     navigate("/");
   };

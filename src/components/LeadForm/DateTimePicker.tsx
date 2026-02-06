@@ -23,7 +23,7 @@ export const DateTimePicker = ({ onSelect, isLoading = false }: DateTimePickerPr
     const fetchAvailability = async () => {
       try {
         const days = await getAvailableDays();
-        console.log(days);
+        // console.log(days);
         setAvailableDays(days);
       } catch (error) {
         console.error("Error fetching available days:", error);

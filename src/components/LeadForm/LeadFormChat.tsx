@@ -157,7 +157,7 @@ export const LeadFormChat = () => {
   };
 
   const handleProdutos = (produto: string) => {
-    console.log(produto);
+    // console.log(produto);
     setLeadData((prev) => ({ ...prev, produto }));
     addMessage(produto, true);
     setTimeout(() => {
@@ -182,7 +182,7 @@ export const LeadFormChat = () => {
     setLeadData((prev) => ({ ...prev, collaborators }));
     addMessage(collaborators, true);
 
-    console.log('aqui', leadData.produto)
+    // console.log('aqui', leadData.produto)
 
     // Create lead after collecting all data
     const currentLeadData: LeadData = {

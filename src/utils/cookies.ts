@@ -7,7 +7,7 @@ export const setSessionCookie = (token: string, expiryDate: Date ): void => {
   expiryDate.setDate(expiryDate.getDate());
 
   document.cookie = `${COOKIE_NAME}=${token}; expires=${expiryDate.toUTCString()}; path=/; SameSite=Strict`;
-  console.log("[Cookie] Session saved:", token);
+  // console.log("[Cookie] Session saved:", token);
 };
 
 export const getSessionCookie = (): string | null => {
@@ -25,5 +25,5 @@ export const getSessionCookie = (): string | null => {
 
 export const clearSessionCookie = (): void => {
   document.cookie = `${COOKIE_NAME}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-  console.log("[Cookie] Session cleared");
+  // console.log("[Cookie] Session cleared");
 };
