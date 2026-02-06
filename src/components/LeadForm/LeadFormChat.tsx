@@ -201,7 +201,7 @@ export const LeadFormChat = () => {
 
       setTimeout(() => {
         addMessage(
-          `${leadData.nome}, uma empresa com a estrutura de vocês tem um potencial imenso para ganhos de eficiência com IA. Identificamos uma economia estimada de R$ 8.000 a R$ 15.000/mês com as automações certas! 🚀`,
+          `${leadData.nome}, empresas com o perfil de vocês têm um enorme potencial para aumentar eficiência com IA, por meio de automações estratégicas e bem direcionadas.`,
           false
         );
         setTimeout(() => {
