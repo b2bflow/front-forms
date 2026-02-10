@@ -7,7 +7,7 @@ import { OptionButtons } from "./OptionButtons";
 import { DateTimePicker } from "./DateTimePicker";
 import { SuccessMessage } from "./SuccessMessage";
 import { getSessionCookie, setSessionCookie } from "@/utils/cookies";
-import { createLead, createAppointment, LeadData, updateLead } from "@/services/mockApi";
+import { createLead, createAppointment, LeadData, updateLead, CreateLeadData } from "@/services/mockApi";
 
 interface LeadFormData {
   nome: string;
@@ -119,15 +119,12 @@ export const LeadFormChat = () => {
     setLeadData((prev) => ({ ...prev, empresa }));
     addMessage(empresa, true);
 
-    const currentLeadData: LeadData = {
+    const currentLeadData: CreateLeadData = {
       name: leadData.nome!,
       phone: leadData.telefone!,
       email: leadData.email!,
       business_name: empresa,
-      business_tracking: '',
-      product_of_interest: '',
-      invoicing: '',
-      collaborators: '',
+      type_lead: "venda"
     };
 
     try {
@@ -194,6 +191,7 @@ export const LeadFormChat = () => {
       product_of_interest: leadData.produto!,
       invoicing: leadData.faturamento!,
       collaborators,
+      type_lead: "venda",
     };
 
     try {

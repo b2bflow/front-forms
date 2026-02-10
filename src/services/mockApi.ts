@@ -9,6 +9,15 @@ export interface LeadData {
   product_of_interest: string;
   invoicing: string;
   collaborators: string;
+  type_lead: string;
+}
+
+export interface CreateLeadData {
+  name: string;
+  phone: string;
+  email: string;
+  business_name: string;
+  type_lead: string;
 }
 
 export interface TimeSlot {
@@ -101,7 +110,7 @@ const generateMockAvailableDays = (): AvailableDay[] => {
 };
 
 // Mock: Create lead and return session token
-export const createLead = async (data: LeadData): Promise<CreateLeadResponse> => {
+export const createLead = async (data: CreateLeadData): Promise<CreateLeadResponse> => {
   const API_URL = import.meta.env.VITE_API_URL;
 
   try {

@@ -65,7 +65,7 @@ const Confirmacao = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <div className="max-w-3xl mx-auto px-4 py-6">
         <Header />
 
@@ -139,19 +139,6 @@ const Confirmacao = () => {
                   </p>
                 </div>
               </div>
-            </div>
-
-            <div className="mt-8 text-center">
-              <p className="text-muted-foreground text-sm mb-4">
-                Precisa remarcar? Entre em contato conosco ou agende uma nova sessão.
-              </p>
-              <Button
-                variant="outline"
-                onClick={handleNewAppointment}
-                className="border-primary text-primary hover:bg-primary/10"
-              >
-                Agendar Nova Sessão
-              </Button>
             </div>
           </div>
         </motion.div>

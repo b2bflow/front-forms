@@ -97,12 +97,6 @@ export const SuccessMessage = ({ data }: SuccessMessageProps) => {
           </div>
         </div>
       </div>
-
-      <div className="mt-6 p-4 bg-primary/10 rounded-xl border border-primary/30">
-        <p className="text-sm text-foreground text-center">
-          💰 <strong>Economia estimada:</strong> R$ 8.000 a R$ 15.000/mês com IA
-        </p>
-      </div>
     </motion.div>
   );
 };
