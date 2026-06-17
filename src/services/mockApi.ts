@@ -172,7 +172,10 @@ export const getAvailableDays = async (): Promise<AvailableDay[]> => {
     }
   );
   if (!response.ok) throw new Error('Erro ao buscar agenda');
-  return await response.json();
+
+  const days = await response.json();
+  // console.log("[Mock API] Response:", days);
+  return days;
 };
 
 export const createAppointment = async (
