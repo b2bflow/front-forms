@@ -5,7 +5,7 @@ import { CalendarIcon, MapPin, Clock, Loader2 } from "lucide-react";
 import { ptBR } from "date-fns/locale";
 import { format, parseISO, isSameDay } from "date-fns";
 import { Button } from "@/components/ui/button";
-import { getAvailableDays, AvailableDay, TimeSlot } from "@/services/mockApi";
+import { getAvailableDays, AvailableDay, TimeSlot } from "@/services/api";
 
 interface DateTimePickerProps {
   onSelect: (date: Date, time: string) => void;

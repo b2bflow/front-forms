@@ -7,7 +7,7 @@ import { OptionButtons } from "./OptionButtons";
 import { DateTimePicker } from "./DateTimePicker";
 import { SuccessMessage } from "./SuccessMessage";
 import { getSessionCookie, setSessionCookie } from "@/utils/cookies";
-import { createLead, createAppointment, LeadData, updateLead, CreateLeadData } from "@/services/mockApi";
+import { createLead, createAppointment, LeadData, updateLead, CreateLeadData } from "@/services/api";
 
 interface LeadFormData {
   nome: string;
@@ -176,7 +176,7 @@ export const LeadFormChat = () => {
   };
 
   const handleColaboradores = async (collaborators: string) => {
-    setLeadData((prev) => ({ ...prev, collaborators }));
+    setLeadData((prev) => ({ ...prev, colaboradores: collaborators }));
     addMessage(collaborators, true);
 
     // console.log('aqui', leadData.produto)
@@ -195,7 +195,12 @@ export const LeadFormChat = () => {
     };
 
     try {
-      await updateLead(currentLeadData);
+      const response = await updateLead(currentLeadData);
+
+      if (response.next_action === "thank_you") {
+        navigate("/obrigado");
+        return;
+      }
 
       setTimeout(() => {
         addMessage(
@@ -229,8 +234,13 @@ export const LeadFormChat = () => {
       });
 
       if (appointmentResponse.success) {
-        // Save session cookie
-        setSessionCookie(leadToken, new Date(appointmentResponse.expiretedDate));
+        let expiresAt = new Date(appointmentResponse.expiresAt);
+        if (Number.isNaN(expiresAt.getTime())) {
+          expiresAt = new Date();
+          expiresAt.setDate(expiresAt.getDate() + 30);
+        }
+
+        setSessionCookie(leadToken, expiresAt);
 
         setLeadData((prev) => ({
           ...prev,

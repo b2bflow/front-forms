@@ -6,7 +6,7 @@ import { ptBR } from "date-fns/locale";
 import { Calendar, Clock, Building2, Mail, Phone, CheckCircle2 } from "lucide-react";
 import { Header } from "@/components/LeadForm/Header";
 import { getSessionCookie, clearSessionCookie } from "@/utils/cookies";
-import { validateSession, SessionData } from "@/services/mockApi";
+import { validateSession, SessionData } from "@/services/api";
 import { Button } from "@/components/ui/button";
 
 const Confirmacao = () => {
@@ -58,11 +58,13 @@ const Confirmacao = () => {
 
   if (!sessionData) return null;
 
-  const formattedDate = format(
-    parseISO(sessionData.appointmentDate),
-    "EEEE, dd 'de' MMMM 'de' yyyy",
-    { locale: ptBR }
-  );
+  const formattedDate = sessionData.appointmentDate
+    ? format(
+        parseISO(sessionData.appointmentDate),
+        "EEEE, dd 'de' MMMM 'de' yyyy",
+        { locale: ptBR }
+      )
+    : "Data não informada";
 
   return (
     <div className="min-h-screen bg-white">
