@@ -37,11 +37,13 @@ type Step =
 const segmentos = ["Tecnologia", "Serviços", "Indústria", "Comércio", "Saúde", "Educação", "Outro"];
 const produtos = ["SDR IA", "CONSULTOIA DE IA", "AGENTE IA", "SAAS", "AUTOMAÇÕES", "AINDA NÃO SEI RESPONDER", "OUTRO"];
 const faturamentos = [
-  "Até R$100 mil/ano",
-  "R$100 mil a R$500 mil/ano",
-  "R$500 mil a R$2 milhões/ano",
-  "R$2 milhões/ano a R$10 milhões/ano",
-  "Acima de R$10 milhões/ano",
+  "Abaixo de R$ 10 mil",
+  "R$ 10 mil a R$ 30 mil",
+  "R$ 30 mil a R$ 50 mil",
+  "R$ 50 mil a R$ 100 mil",
+  "R$ 100 mil a R$ 300 mil",
+  "R$ 300 mil a R$ 1 milhão",
+  "Acima de R$ 1 milhão",
 ];
 const colaboradoresOptions = ["apenas eu", "1 a 5" ,"6 a 20", "21 a 50", "51 a 200", "+200"];
 
